@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 module.exports = (req, res, next) => {
+  // We look for a header called 'x-auth-token'
   const token = req.header("x-auth-token");
   console.log("token", token);
   if (!token)

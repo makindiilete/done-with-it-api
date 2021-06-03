@@ -38,6 +38,7 @@ const validateCategoryId = (req, res, next) => {
 router.get("/", (req, res) => {
   const listings = store.getListings();
   const resources = listings.map(listingMapper);
+  // res.error("Error");
   res.send(resources);
 });
 
@@ -70,7 +71,7 @@ router.post(
     if (req.user) listing.userId = req.user.userId;
 
     store.addListing(listing);
-
+    // res.error(404);
     res.status(201).send(listing);
   }
 );
